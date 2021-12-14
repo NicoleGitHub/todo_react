@@ -1,6 +1,8 @@
+import '../style/style.css';
+
 function ToDoItem(props) {
     return (
-        <div> 
+        <div className="border"> 
             <span>{props.toDo}</span>
         </div>
     );
