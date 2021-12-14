@@ -1,20 +1,16 @@
-import { useState } from "react";
 import ToDoGenerator from "./ToDoGenerator";
 import ToDoGroup from "./TodoGroup";
+import { useSelector } from 'react-redux';
 
 function ToDoList() {
 
-    const [toDoList, setToDoList] = useState([]);
-
-    function updateToDo(toDoString) {
-        setToDoList([...toDoList, toDoString]);
-    }
+    const toDoList = useSelector(state => state.toDoList);
 
     return (
         <div> 
             <h4>ToDo List</h4>
-            <ToDoGroup toDoList={toDoList} updateToDo={updateToDo}/>
-            <ToDoGenerator updateToDo={updateToDo}/>
+            <ToDoGroup toDoList={toDoList}/>
+            <ToDoGenerator/>
         </div>
     );
 
