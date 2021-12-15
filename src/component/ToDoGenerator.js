@@ -1,31 +1,37 @@
 import { useState } from "react";
 import '../style/style.css';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { INSERT_TODO } from "../constants/constants";
-import { v4 as uuidv4 } from "uuid";
+import { addTodos } from "../apis/todos";
+import { Button, Input } from 'antd';
 
+function ToDoGenerator() {
 
-
-function ToDoGenerator(props) {
-
-    const [toDo, setToDo] = useState("");
+    const [text, setText] = useState("");
     const dispatch = useDispatch();
 
     function createToDoItem() {
-        if(toDo !== "") {
-            dispatch({type: INSERT_TODO, payload: {id: uuidv4(), text: toDo, done: false}});
-            setToDo("");
-        }
+        addTodos({text, done: false}).then((response) => {
+            dispatch({type: INSERT_TODO, payload: response.data});
+        })
+        setText("");
     }
 
     function handleToDoString(event) {
-        setToDo(String(event.target.value));
+        setText(String(event.target.value));
     }
 
     return (
         <div> 
-            <input value={toDo} onChange={handleToDoString}></input>
-            <button className="add-button" type="submit" onClick={createToDoItem}>add</button>
+            <Input
+            placeholder="do sth you lazy boi"
+            allowClear
+            size="small"
+            style={{ width:260}}
+            value={text}
+            onChange={handleToDoString} 
+            />
+            <Button type="submit" size="small" disabled={(text.length === 0)} onClick={createToDoItem}>add</Button>
         </div>
     );
 

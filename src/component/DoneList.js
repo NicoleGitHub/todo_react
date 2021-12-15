@@ -1,18 +1,19 @@
-import ToDoItem from "./ToDoItem";
-import '../style/style.css';
 import { useSelector } from 'react-redux';
+import '../style/style.css';
 
-function ToDoGroup() {
+function DoneList() {
 
     const toDoList = useSelector(state => state.toDoList);
 
     return (
         <div className="to-do-group-container">
+            <h4>Done List</h4>
             {toDoList.map((item) => (
-                <ToDoItem key={item.id} item={item}/>
+                (item.done)?<span className="border">{item.text}</span>:<></>
             ))}
         </div>
     );
+
 }
 
-export default ToDoGroup;
+export default DoneList;

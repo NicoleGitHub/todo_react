@@ -1,5 +1,5 @@
 .add-button {
-    background-color: rgb(66, 66, 240);
+    background-color: rgb(102, 102, 102);
     color: aliceblue;
     color: success;
     size: lg;
@@ -11,12 +11,19 @@
 
 .border{
     border: 2px solid black;
-    width: 210px;
+    width: 300px;
     margin-bottom: 5px;
     text-align: flex-start;
     display: flex;
     justify-content: space-between;
+}
 
+.border:hover {
+    background-color: rgb(224, 223, 223);
+}
+
+.border:active {
+    background-color: rgb(189, 189, 189);
 }
   
 .to-do-group-container{
@@ -39,3 +46,4 @@
 .strikethrough-text {
     text-decoration:line-through;
 }
+

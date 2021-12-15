@@ -1,5 +1,4 @@
-export const INSERT_TODO = "toDoList/insertToDo";
-export const DELETE_TODO = "toDoList/deleteToDo";
-export const UPDATE_DONE = "toDoList/updateDone";
-
-
+export const INSERT_TODO = "todo/insertToDo";
+export const DELETE_TODO = "todo/deleteToDo";
+export const UPDATE_DONE = "todo/updateDone";
+export const INIT_TODO = "todo/init";
